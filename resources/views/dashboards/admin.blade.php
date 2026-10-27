@@ -48,7 +48,7 @@
 <!-- Quick Actions -->
 <div class="card mb-20" style="margin-bottom:24px;">
     <div class="card-header">
-        <span class="card-title"><i class="fas fa-bolt" style="color:#f59e0b;"></i> Quick Actions</span>
+        <span class="card-title"><i class="fas fa-th-large" style="color:#2d5a4e;"></i> Quick Actions</span>
     </div>
     <div class="card-body">
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -77,7 +77,7 @@
     <!-- Recent Students -->
     <div class="card">
         <div class="card-header">
-            <span class="card-title"><i class="fas fa-user-graduate" style="color:#7c3aed;"></i> Recent Students</span>
+            <span class="card-title"><i class="fas fa-user-graduate" style="color:#2d5a4e;"></i> Recent Students</span>
             <a href="{{ route('students.index') }}" class="btn btn-sm btn-outline">View All</a>
         </div>
         <div class="card-body" style="padding:0;">
@@ -162,15 +162,15 @@
     <!-- Upcoming Events -->
     <div class="card">
         <div class="card-header">
-            <span class="card-title"><i class="fas fa-calendar-alt" style="color:#8b5cf6;"></i> Upcoming Events</span>
+            <span class="card-title"><i class="fas fa-calendar-alt" style="color:#2d5a4e;"></i> Upcoming Events</span>
             <a href="{{ route('events.index') }}" class="btn btn-sm btn-outline">View All</a>
         </div>
         <div class="card-body" style="padding:0;">
             @forelse($events as $event)
             <div style="padding:14px 20px;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;gap:14px;">
-                <div style="text-align:center;min-width:46px;background:#ede9fe;border-radius:10px;padding:8px 6px;">
-                    <div style="font-size:18px;font-weight:800;color:#7c3aed;line-height:1;">{{ $event->event_date->format('d') }}</div>
-                    <div style="font-size:10px;color:#7c3aed;font-weight:600;">{{ $event->event_date->format('M') }}</div>
+                <div style="text-align:center;min-width:46px;background:#e8f5ef;border-radius:10px;padding:8px 6px;">
+                    <div style="font-size:18px;font-weight:800;color:#2d5a4e;line-height:1;">{{ $event->event_date->format('d') }}</div>
+                    <div style="font-size:10px;color:#2d5a4e;font-weight:600;">{{ $event->event_date->format('M') }}</div>
                 </div>
                 <div>
                     <div style="font-weight:600;font-size:13.5px;color:#1e293b;">{{ $event->title }}</div>

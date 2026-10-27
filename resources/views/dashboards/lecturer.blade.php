@@ -7,16 +7,16 @@
 @section('content')
 
 <!-- Welcome Banner -->
-<div style="background:linear-gradient(135deg,#064e3b,#059669);border-radius:16px;padding:28px 32px;margin-bottom:28px;color:white;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+<div style="background:linear-gradient(135deg,#1e4034,#2d5a4e);border-radius:16px;padding:28px 32px;margin-bottom:28px;color:#f5f0e8;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
     <div>
-        <h2 style="font-size:22px;font-weight:800;margin-bottom:6px;">Welcome back, {{ $lecturer?->first_name ?? auth()->user()->name }}!</h2>
-        <p style="color:rgba(255,255,255,.7);font-size:14px;">
+        <h2 style="font-size:22px;font-weight:800;margin-bottom:6px;font-family:'Poppins',sans-serif;">Good day, {{ $lecturer?->first_name ?? auth()->user()->name }}!</h2>
+        <p style="color:rgba(245,240,232,.7);font-size:14px;">
             {{ $lecturer?->department ?? 'Department not set' }} &bull; Staff No: {{ $lecturer?->staff_number ?? 'N/A' }}
         </p>
     </div>
     <div style="text-align:right;">
         <div style="font-size:28px;font-weight:800;">{{ $courses?->count() ?? 0 }}</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.7);">Assigned Courses</div>
+        <div style="font-size:13px;color:rgba(245,240,232,.7);">Assigned Courses</div>
     </div>
 </div>
 
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="stat-card">
-        <div class="stat-icon green"><i class="fas fa-calendar"></i></div>
+        <div class="stat-icon green"><i class="fas fa-calendar-alt"></i></div>
         <div class="stat-info">
             <h3>{{ date('Y') }}</h3>
             <p>Academic Year</p>

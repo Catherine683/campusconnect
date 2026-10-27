@@ -7,16 +7,16 @@
 @section('content')
 
 <!-- Welcome Banner -->
-<div style="background:linear-gradient(135deg,#1e1b4b,#4338ca);border-radius:16px;padding:28px 32px;margin-bottom:28px;color:white;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+<div style="background:linear-gradient(135deg,#1e4034,#2d5a4e);border-radius:16px;padding:28px 32px;margin-bottom:28px;color:#f5f0e8;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
     <div>
-        <h2 style="font-size:22px;font-weight:800;margin-bottom:6px;">Welcome, {{ $student?->first_name ?? auth()->user()->name }}!</h2>
-        <p style="color:rgba(255,255,255,.7);font-size:14px;">
+        <h2 style="font-size:22px;font-weight:800;margin-bottom:6px;font-family:'Poppins',sans-serif;">Good day, {{ $student?->first_name ?? auth()->user()->name }}!</h2>
+        <p style="color:rgba(245,240,232,.7);font-size:14px;">
             {{ $student?->program ?? 'Program not set' }} &bull; Year {{ $student?->year_of_study ?? '—' }} &bull; {{ $student?->student_number ?? 'N/A' }}
         </p>
     </div>
     <div style="text-align:right;">
         <div style="font-size:28px;font-weight:800;">{{ $registrations?->count() ?? 0 }}</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.7);">Courses Registered</div>
+        <div style="font-size:13px;color:rgba(245,240,232,.7);">Courses Registered</div>
     </div>
 </div>
 
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="stat-card">
-        <div class="stat-icon green"><i class="fas fa-star"></i></div>
+        <div class="stat-icon green"><i class="fas fa-award"></i></div>
         <div class="stat-info">
             <h3>{{ $registrations ? $registrations->sum(fn($r) => $r->course->credit_units ?? 0) : 0 }}</h3>
             <p>Credit Units</p>
@@ -58,8 +58,8 @@
         <div class="card-body" style="padding:0;">
             @forelse($registrations ?? [] as $reg)
             <div style="padding:14px 20px;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;gap:14px;">
-                <div style="width:42px;height:42px;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:11px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px;flex-shrink:0;">
-                    <i class="fas fa-book"></i>
+                <div style="width:42px;height:42px;background:linear-gradient(135deg,#2d5a4e,#3d7a6a);border-radius:11px;display:flex;align-items:center;justify-content:center;color:#f5f0e8;font-size:16px;flex-shrink:0;">
+                    <i class="fas fa-book-open"></i>
                 </div>
                 <div style="flex:1;min-width:0;">
                     <div style="font-weight:600;font-size:13.5px;color:#1e293b;">{{ $reg->course->name }}</div>

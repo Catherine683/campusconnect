@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'CampusConnect') | Makerere University Business School</title>
+    <title>@yield('title', 'KampusKonnect') | Makerere University Business School</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,37 +16,39 @@
 
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-dark: #3730a3;
-            --primary-light: #818cf8;
-            --secondary: #06b6d4;
+            --primary: #2d5a4e;
+            --primary-dark: #1e4034;
+            --primary-light: #3d7a6a;
+            --secondary: #8ab89e;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
             --info: #3b82f6;
-            --dark: #1e1b4b;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-600: #475569;
-            --gray-700: #334155;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
+            --cream: #f5f0e8;
+            --cream-light: #faf7f2;
+            --cream-mid: #ede8df;
             --sidebar-width: 260px;
             --navbar-height: 65px;
             --radius: 12px;
             --shadow: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.05);
+            --gray-50: #f8faf9;
+            --gray-100: #f1f5f3;
+            --gray-200: #e2ebe6;
+            --gray-300: #c8d8d0;
+            --gray-400: #8aab9e;
+            --gray-500: #5a7a6e;
+            --gray-600: #3a5a4e;
+            --gray-700: #2a4038;
+            --gray-800: #1e3028;
+            --gray-900: #121e18;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--gray-50);
+            background: var(--cream-light);
             color: var(--gray-800);
             min-height: 100vh;
         }
@@ -57,7 +59,7 @@
             top: 0; left: 0;
             width: var(--sidebar-width);
             height: 100vh;
-            background: linear-gradient(180deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+            background: linear-gradient(180deg, #1e4034 0%, #2d5a4e 55%, #3d7a6a 100%);
             display: flex;
             flex-direction: column;
             z-index: 1000;
@@ -76,11 +78,11 @@
 
         .sidebar-logo .logo-icon {
             width: 44px; height: 44px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #6b7c5c, #8a9e7a);
             border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 22px; color: white; margin-bottom: 8px;
-            box-shadow: 0 4px 12px rgba(99,102,241,.4);
+            font-size: 22px; color: #f5f0e8; margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(107,124,92,.45);
         }
 
         .sidebar-logo h1 {
@@ -107,9 +109,9 @@
         }
 
         .sidebar-user .user-avatar {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #2d5a4e, #3d7a6a);
             display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 700; font-size: 14px;
+            color: #f5f0e8; font-weight: 700; font-size: 14px;
         }
 
         .sidebar-user .user-info h4 {
@@ -160,7 +162,7 @@
             position: absolute; left: 0; top: 50%;
             transform: translateY(-50%);
             width: 3px; height: 20px;
-            background: #818cf8;
+            background: #a8d5b5;
             border-radius: 0 3px 3px 0;
             margin-left: -10px;
         }
@@ -169,21 +171,27 @@
 
         .sidebar-footer {
             padding: 16px 20px;
-            border-top: 1px solid rgba(255,255,255,.08);
+            border-top: 1px solid rgba(245,240,232,.12);
         }
 
         .sidebar-footer form button {
             display: flex; align-items: center; gap: 10px;
-            color: rgba(255,255,255,.6);
-            background: none; border: none; cursor: pointer;
-            font-size: 13px; font-weight: 500;
-            padding: 8px 10px; border-radius: 8px;
+            color: var(--cream);
+            background: rgba(239,68,68,.12);
+            border: 1px solid rgba(239,68,68,.2);
+            cursor: pointer;
+            font-size: 13px; font-weight: 600;
+            padding: 10px 16px; border-radius: 10px;
             width: 100%; transition: all .2s;
+            font-family: inherit;
         }
 
         .sidebar-footer form button:hover {
-            background: rgba(239,68,68,.15);
+            background: rgba(239,68,68,.28);
+            border-color: rgba(239,68,68,.4);
             color: #fca5a5;
+            transform: translateX(2px);
+        }
         }
 
         /* ── Topbar ── */
@@ -193,8 +201,8 @@
             left: var(--sidebar-width);
             right: 0;
             height: var(--navbar-height);
-            background: white;
-            border-bottom: 1px solid var(--gray-200);
+            background: var(--cream);
+            border-bottom: 1px solid var(--cream-mid);
             display: flex; align-items: center; justify-content: space-between;
             padding: 0 28px;
             z-index: 900;
@@ -227,7 +235,7 @@
             position: relative;
         }
 
-        .topbar-btn:hover { background: var(--gray-200); color: var(--primary); }
+        .topbar-btn:hover { background: var(--cream-mid); color: var(--primary); }
 
         .topbar-user {
             display: flex; align-items: center; gap: 10px;
@@ -240,9 +248,9 @@
         }
 
         .topbar-user .user-avatar-sm {
-            background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+            background: linear-gradient(135deg, #2d5a4e, #3d7a6a);
             display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 13px; font-weight: 700;
+            color: #f5f0e8; font-size: 13px; font-weight: 700;
         }
 
         .topbar-user-name {
@@ -510,11 +518,12 @@
 <aside class="sidebar" id="sidebar">
     <!-- Logo -->
     <div class="sidebar-logo">
-        <div class="logo-icon">
-            <i class="fas fa-graduation-cap"></i>
-        </div>
-        <h1>CampusConnect</h1>
-        <p>Makerere University Business School</p>
+        <a href="#" style="display:block; text-decoration:none;">
+            <img src="{{ asset('images/logo.png') }}"
+                 alt="KampusKonnect Logo"
+                 style="width:100%; max-width:210px; height:auto; display:block; margin:0 auto;">
+        </a>
+        <p style="text-align:center; margin-top:6px;">Makerere University Business School</p>
     </div>
 
     <!-- User Info -->
@@ -689,8 +698,8 @@
 </main>
 
 <!-- Footer -->
-<footer style="margin-left:var(--sidebar-width); padding:18px 28px; background:white; border-top:1px solid var(--gray-200); font-size:12px; color:var(--gray-400); display:flex; justify-content:space-between; align-items:center;">
-    <span>&copy; {{ date('Y') }} <strong>CampusConnect</strong> &mdash; Makerere University Business School</span>
+<footer style="margin-left:var(--sidebar-width); padding:18px 28px; background:var(--cream); border-top:1px solid var(--cream-mid); font-size:12px; color:var(--gray-500); display:flex; justify-content:space-between; align-items:center;">
+    <span>&copy; {{ date('Y') }} <strong>KampusKonnect</strong> &mdash; Makerere University Business School</span>
     <span>Advanced Web Application Development &bull; BUC3131</span>
 </footer>
 
