@@ -1,64 +1,178 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CampusConnect — Student Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Makerere University Business School | BUC3131 – Advanced Web Application Development | 2026/2027**
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Project Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+CampusConnect is a web-based Student Management System built with Laravel. It manages students, courses, lecturers, and course registrations with role-based access control.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🚀 Installation & Setup
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Prerequisites
+- PHP >= 8.2
+- Composer
+- Node.js & npm
+- SQLite (included) or MySQL
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Steps
 
-## Laravel Sponsors
+```bash
+# 1. Clone the repository
+git clone <repository-url>
+cd campusconnect
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# 2. Install PHP dependencies
+composer install
 
-### Premium Partners
+# 3. Install Node dependencies
+npm install
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+# 4. Copy environment file
+cp .env.example .env
 
-## Contributing
+# 5. Generate application key
+php artisan key:generate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# 6. Run migrations
+php artisan migrate
 
-## Code of Conduct
+# 7. Seed the database
+php artisan db:seed
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# 8. Build front-end assets
+npm run build
 
-## Security Vulnerabilities
+# 9. Start the development server
+php artisan serve
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Visit: **http://localhost:8000**
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# campusconnect
-A web-based application designed to help a university manage student information, courses, lecturers and course registrations efficiently.
->>>>>>> b1cb8113f7a64f8ef1f5d6a0906f23ddd8c35ece
+## 👥 User Roles & Sample Login Credentials
+
+| Role | Email | Password |
+|------|-------|----------|
+| **Administrator** | admin@campusconnect.ac.ug | password |
+| **Lecturer** | j.mukasa@campusconnect.ac.ug | password |
+| **Lecturer** | s.namutebi@campusconnect.ac.ug | password |
+| **Lecturer** | p.otieno@campusconnect.ac.ug | password |
+| **Student** | alice.nakato@std.campusconnect.ac.ug | password |
+| **Student** | brian.ssemwogerere@std.campusconnect.ac.ug | password |
+| **Student** | carol.atim@std.campusconnect.ac.ug | password |
+| **Student** | david.ouma@std.campusconnect.ac.ug | password |
+| **Student** | eva.namukasa@std.campusconnect.ac.ug | password |
+| **Student** | frank.mugisha@std.campusconnect.ac.ug | password |
+
+---
+
+## 🔐 Role Permissions
+
+### Administrator
+- Full CRUD on students, lecturers, and courses
+- Manage all course registrations
+- Post announcements and events
+- Full system access
+
+### Lecturer
+- View assigned courses and enrolled students
+- View all registrations
+- Read announcements and events
+- Manage own profile
+
+### Student
+- Browse and register for available courses
+- View own registrations and drop courses
+- Read announcements and events
+- Manage own profile
+
+---
+
+## 🗃️ Database Structure
+
+| Table | Description |
+|-------|-------------|
+| `users` | Authentication accounts for all roles |
+| `students` | Student profile records |
+| `lecturers` | Lecturer profile records |
+| `courses` | Course catalogue |
+| `course_registrations` | Student ↔ Course pivot with status |
+| `announcements` | Campus announcements by audience |
+| `events` | Upcoming campus events |
+| `roles` / `permissions` | Spatie RBAC tables |
+
+### Key Relationships
+- `Student` belongsToMany `Course` (via `course_registrations`)
+- `Course` belongsTo `Lecturer`
+- `Lecturer` hasMany `Course`
+- `Student` hasMany `CourseRegistration`
+- `Course` hasMany `CourseRegistration`
+
+---
+
+## 📁 Project Structure
+
+```
+app/
+├── Http/Controllers/
+│   ├── AdminController.php
+│   ├── AuthController.php
+│   ├── CourseController.php
+│   ├── LecturerController.php
+│   ├── RegistrationController.php
+│   ├── StudentController.php
+│   ├── AnnouncementController.php
+│   ├── EventController.php
+│   └── ProfileController.php
+├── Models/
+│   ├── User.php
+│   ├── Student.php
+│   ├── Lecturer.php
+│   ├── Course.php
+│   ├── CourseRegistration.php
+│   ├── Announcement.php
+│   └── Event.php
+database/
+├── migrations/          # 8 migration files
+├── seeders/             # 5 seeders
+resources/views/
+├── layouts/app.blade.php   # Master layout
+├── welcome.blade.php        # Homepage
+├── auth/                    # Login & Register
+├── dashboards/              # Admin, Lecturer, Student
+├── students/                # Student CRUD views
+├── lecturers/               # Lecturer CRUD views
+├── courses/                 # Course CRUD views
+├── registrations/           # Registration views
+├── announcements/           # Announcement views
+├── events/                  # Event views
+└── profile/                 # Profile edit view
+```
+
+---
+
+## ⚙️ Tech Stack
+
+- **Framework:** Laravel 12
+- **Database:** SQLite (development)
+- **Auth & Roles:** Spatie Laravel Permission v6
+- **Frontend:** Pure CSS (custom design system, no framework)
+- **Icons:** Font Awesome 6
+- **Fonts:** Google Fonts (Inter, Poppins)
+
+---
+
+## 🌿 GitHub Workflow
+
+```
+main          ← stable production code
+develop       ← integration branch
+feature/*     ← individual feature branches
+```
+
+Each team member works on a feature branch and submits a PR to `develop`.
