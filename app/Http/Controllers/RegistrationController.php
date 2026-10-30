@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\CourseRegistration;
-use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,9 +36,10 @@ class RegistrationController extends Controller
         $student = Auth::user()->student;
         $registeredIds = $student?->courses()->pluck('courses.id')->toArray() ?? [];
         $courses = Course::where('status', 'active')
-                         ->whereNotIn('id', $registeredIds)
-                         ->with('lecturer')
-                         ->get();
+            ->whereNotIn('id', $registeredIds)
+            ->with('lecturer')
+            ->get();
+
         return view('registrations.create', compact('courses', 'student'));
     }
 
@@ -51,57 +51,65 @@ class RegistrationController extends Controller
 
         $student = Auth::user()->student;
 
-        if (!$student) {
+        if (! $student) {
             return back()->with('error', 'No student profile found for your account.');
         }
 
         // Check duplicate
         $exists = CourseRegistration::where('student_id', $student->id)
-                                    ->where('course_id', $data['course_id'])
-                                    ->exists();
+            ->where('course_id', $data['course_id'])
+            ->exists();
 
         if ($exists) {
             return back()->with('error', 'You are already registered for this course.');
         }
 
-        // Check capacity
         $course = Course::findOrFail($data['course_id']);
+        if ($course->status !== 'active') {
+            return back()->with('error', 'This course is not available for registration.');
+        }
+
+        // Check capacity
         if ($course->enrolled_count >= $course->max_students) {
             return back()->with('error', 'This course is full. No more registrations accepted.');
         }
 
         CourseRegistration::create([
             'student_id' => $student->id,
-            'course_id'  => $data['course_id'],
-            'status'     => 'registered',
+            'course_id' => $data['course_id'],
+            'status' => 'registered',
         ]);
 
-        return redirect()->route('registrations.index')->with('success', 'You have been registered for ' . $course->name . ' successfully.');
+        return redirect()->route('registrations.index')->with('success', 'You have been registered for '.$course->name.' successfully.');
     }
 
     public function adminStore(Request $request)
     {
         $data = $request->validate([
             'student_id' => 'required|exists:students,id',
-            'course_id'  => 'required|exists:courses,id',
+            'course_id' => 'required|exists:courses,id',
         ]);
 
         $exists = CourseRegistration::where('student_id', $data['student_id'])
-                                    ->where('course_id', $data['course_id'])
-                                    ->exists();
+            ->where('course_id', $data['course_id'])
+            ->exists();
         if ($exists) {
             return back()->with('error', 'Student is already registered for this course.');
         }
 
         $course = Course::findOrFail($data['course_id']);
+        if ($course->status !== 'active') {
+            return back()->with('error', 'This course is not available for registration.');
+        }
+
         if ($course->enrolled_count >= $course->max_students) {
             return back()->with('error', 'This course is full.');
         }
 
         CourseRegistration::create([
             'student_id' => $data['student_id'],
-            'course_id'  => $data['course_id'],
-            'status'     => 'registered',
+            'course_id' => $data['course_id'],
+            'status' => 'registered',
         ]);
 
         return redirect()->route('registrations.index')->with('success', 'Student registered for course successfully.');
@@ -116,7 +124,7 @@ class RegistrationController extends Controller
         if ($user->hasRole('student')) {
             $student = $user->student;
 
-            if (!$student || $registration->student_id !== $student->id) {
+            if (! $student || $registration->student_id !== $student->id) {
                 abort(403, 'Unauthorized.');
             }
         }
@@ -124,6 +132,6 @@ class RegistrationController extends Controller
         $courseName = $registration->course->name;
         $registration->delete();
 
-        return redirect()->route('registrations.index')->with('success', 'Registration for ' . $courseName . ' has been removed.');
+        return redirect()->route('registrations.index')->with('success', 'Registration for '.$courseName.' has been removed.');
     }
 }
