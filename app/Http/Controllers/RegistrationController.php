@@ -109,9 +109,13 @@ class RegistrationController extends Controller
 
     public function destroy(CourseRegistration $registration)
     {
-        // Students can only drop their own courses
-        if (Auth::user()->hasRole('student')) {
-            $student = Auth::user()->student;
+        $user = Auth::user();
+
+        abort_unless($user->hasRole('admin') || $user->hasRole('student'), 403, 'Unauthorized.');
+
+        if ($user->hasRole('student')) {
+            $student = $user->student;
+
             if (!$student || $registration->student_id !== $student->id) {
                 abort(403, 'Unauthorized.');
             }

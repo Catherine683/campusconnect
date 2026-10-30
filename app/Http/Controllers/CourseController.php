@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Lecturer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -42,8 +43,24 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
-        $course->load(['lecturer', 'students.user']);
-        return view('courses.show', compact('course'));
+        $user = Auth::user();
+        $canViewRoster = $user->hasRole('admin');
+
+        if ($user->hasRole('lecturer')) {
+            $lecturer = $user->lecturer;
+            abort_unless($lecturer && $course->lecturer_id === $lecturer->id, 403, 'Unauthorized access.');
+            $canViewRoster = true;
+        } elseif (! $user->hasRole('admin') && ! $user->hasRole('student')) {
+            abort(403, 'Unauthorized access.');
+        }
+
+        $course->load('lecturer');
+
+        if ($canViewRoster) {
+            $course->load('students.user');
+        }
+
+        return view('courses.show', compact('course', 'canViewRoster'));
     }
 
     public function edit(Course $course)

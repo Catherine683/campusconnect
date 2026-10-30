@@ -12,7 +12,28 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $students = Student::with('user')->latest()->paginate(10);
+        $user = Auth::user();
+
+        abort_unless($user->hasRole('admin') || $user->hasRole('lecturer'), 403);
+
+        $studentsQuery = Student::with('user');
+
+        if ($user->hasRole('lecturer')) {
+            $lecturer = $user->lecturer;
+
+            abort_unless($lecturer, 403, 'Lecturer profile not found.');
+
+            $studentsQuery->whereHas('registrations', function ($registrationQuery) use ($lecturer) {
+                $registrationQuery
+                    ->where('status', 'registered')
+                    ->whereHas('course', function ($courseQuery) use ($lecturer) {
+                        $courseQuery->where('lecturer_id', $lecturer->id);
+                    });
+            });
+        }
+
+        $students = $studentsQuery->latest()->paginate(10);
+
         return view('students.index', compact('students'));
     }
 
@@ -64,14 +85,45 @@ class StudentController extends Controller
 
     public function show(Student $student)
     {
-        // Prevent students from viewing other students' profiles
-        if (Auth::user()->hasRole('student')) {
-            $myStudent = Auth::user()->student;
+        $user = Auth::user();
+
+        if ($user->hasRole('student')) {
+            $myStudent = $user->student;
+
             if (!$myStudent || $myStudent->id !== $student->id) {
                 abort(403, 'Unauthorized access.');
             }
+
+            $student->load(['registrations.course.lecturer']);
+        } elseif ($user->hasRole('lecturer')) {
+            $lecturer = $user->lecturer;
+
+            abort_unless(
+                $lecturer && $student->registrations()
+                    ->where('status', 'registered')
+                    ->whereHas('course', function ($courseQuery) use ($lecturer) {
+                        $courseQuery->where('lecturer_id', $lecturer->id);
+                    })
+                    ->exists(),
+                403,
+                'Unauthorized access.'
+            );
+
+            $student->load([
+                'registrations' => function ($registrationQuery) use ($lecturer) {
+                    $registrationQuery
+                        ->whereHas('course', function ($courseQuery) use ($lecturer) {
+                            $courseQuery->where('lecturer_id', $lecturer->id);
+                        })
+                        ->with('course.lecturer');
+                },
+            ]);
+        } elseif ($user->hasRole('admin')) {
+            $student->load(['registrations.course.lecturer']);
+        } else {
+            abort(403, 'Unauthorized access.');
         }
-        $student->load(['registrations.course', 'courses.lecturer']);
+
         return view('students.show', compact('student'));
     }
 
