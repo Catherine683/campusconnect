@@ -1,178 +1,166 @@
-# CampusConnect — Student Management System
+# CampusConnect
 
-**Makerere University Business School | BUC3131 – Advanced Web Application Development | 2026/2027**
+A Laravel student management system for Makerere University Business School. CampusConnect brings student, lecturer, course, and course-registration management into one role-based application.
 
----
+**Course:** Advanced Web Application Development (BUC3131)
 
-## 📋 Project Overview
+**Academic year:** 2026/2027
 
-CampusConnect is a web-based Student Management System built with Laravel. It manages students, courses, lecturers, and course registrations with role-based access control.
+**Repository:** [Catherine683/campusconnect](https://github.com/Catherine683/campusconnect)
 
----
+## What the application does
 
-## 🚀 Installation & Setup
+- Administrators manage students, lecturers, courses, registrations, announcements, and events.
+- Lecturers view their assigned courses and registered students.
+- Students browse courses, register for courses, view their registrations, and manage their profiles.
+- Role-based access is implemented with Laravel authentication and Spatie Laravel Permission.
 
-### Prerequisites
-- PHP >= 8.2
-- Composer
-- Node.js & npm
-- SQLite (included) or MySQL
+## Built with
 
-### Steps
+- PHP 8.2+
+- Laravel 12
+- MySQL (configured by default; SQLite can also be configured)
+- Spatie Laravel Permission 6
+- Node.js, npm, and Vite
+
+## Get started
+
+### Requirements
+
+Install PHP 8.2 or newer, Composer, Node.js/npm, and MySQL. Create a MySQL database for the application, for example `campusconnect`.
+
+### Installation
+
+From the project directory, run:
 
 ```bash
-# 1. Clone the repository
-git clone <repository-url>
-cd campusconnect
-
-# 2. Install PHP dependencies
 composer install
-
-# 3. Install Node dependencies
 npm install
+```
 
-# 4. Copy environment file
+Create your local environment file:
+
+```bash
 cp .env.example .env
+```
 
-# 5. Generate application key
+On Windows PowerShell, use:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Update the database settings in `.env` to match your local MySQL setup:
+
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=campusconnect
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+For SQLite instead, set `DB_CONNECTION=sqlite` and `DB_DATABASE=database/database.sqlite` in `.env`, then create the empty database file before migrating:
+
+```powershell
+New-Item -ItemType File -Path database\database.sqlite -Force
+```
+
+Then generate the application key, create the tables and demo data, and build the frontend:
+
+```bash
 php artisan key:generate
-
-# 6. Run migrations
-php artisan migrate
-
-# 7. Seed the database
-php artisan db:seed
-
-# 8. Build front-end assets
+php artisan migrate --seed
 npm run build
+```
 
-# 9. Start the development server
+Start the application:
+
+```bash
 php artisan serve
 ```
 
-Visit: **http://localhost:8000**
+Open [http://localhost:8000](http://localhost:8000).
 
----
+The database seeder creates demo users, roles, courses, registrations, announcements, and events. To reset a local development database and reseed it, run `php artisan migrate:fresh --seed`. **This deletes existing database data; do not use it on a database you need to keep.**
 
-## 👥 User Roles & Sample Login Credentials
+## Demo accounts
 
-| Role | Email | Password |
-|------|-------|----------|
-| **Administrator** | admin@campusconnect.ac.ug | password |
-| **Lecturer** | j.mukasa@campusconnect.ac.ug | password |
-| **Lecturer** | s.namutebi@campusconnect.ac.ug | password |
-| **Lecturer** | p.otieno@campusconnect.ac.ug | password |
-| **Student** | alice.nakato@std.campusconnect.ac.ug | password |
-| **Student** | brian.ssemwogerere@std.campusconnect.ac.ug | password |
-| **Student** | carol.atim@std.campusconnect.ac.ug | password |
-| **Student** | david.ouma@std.campusconnect.ac.ug | password |
-| **Student** | eva.namukasa@std.campusconnect.ac.ug | password |
-| **Student** | frank.mugisha@std.campusconnect.ac.ug | password |
+These accounts are created by the seeders. The demo password for each account is `password`.
 
----
+| Role | Email |
+|---|---|
+| Administrator | `admin@campusconnect.ac.ug` |
+| Lecturer | `j.mukasa@campusconnect.ac.ug` |
+| Lecturer | `s.namutebi@campusconnect.ac.ug` |
+| Lecturer | `p.otieno@campusconnect.ac.ug` |
+| Student | `alice.nakato@std.campusconnect.ac.ug` |
+| Student | `brian.ssemwogerere@std.campusconnect.ac.ug` |
+| Student | `carol.atim@std.campusconnect.ac.ug` |
+| Student | `david.ouma@std.campusconnect.ac.ug` |
+| Student | `eva.namukasa@std.campusconnect.ac.ug` |
+| Student | `frank.mugisha@std.campusconnect.ac.ug` |
 
-## 🔐 Role Permissions
+These credentials are for local coursework demonstrations only. Change or remove them before deploying the application anywhere public.
+
+## Roles
 
 ### Administrator
-- Full CRUD on students, lecturers, and courses
-- Manage all course registrations
-- Post announcements and events
-- Full system access
+
+Manages student, lecturer, and course records; manages registrations, announcements, events, and application access.
 
 ### Lecturer
-- View assigned courses and enrolled students
-- View all registrations
-- Read announcements and events
-- Manage own profile
+
+Views assigned courses and their registered students, and can view announcements and events.
 
 ### Student
-- Browse and register for available courses
-- View own registrations and drop courses
-- Read announcements and events
-- Manage own profile
 
----
+Views courses, registers for courses, views their own registrations, and can read announcements and events.
 
-## 🗃️ Database Structure
+## Data model
 
-| Table | Description |
-|-------|-------------|
-| `users` | Authentication accounts for all roles |
-| `students` | Student profile records |
-| `lecturers` | Lecturer profile records |
-| `courses` | Course catalogue |
-| `course_registrations` | Student ↔ Course pivot with status |
-| `announcements` | Campus announcements by audience |
-| `events` | Upcoming campus events |
-| `roles` / `permissions` | Spatie RBAC tables |
+The main academic records are students, lecturers, courses, and course registrations. A registration connects one student to one course and stores registration details such as status and grade.
 
-### Key Relationships
-- `Student` belongsToMany `Course` (via `course_registrations`)
-- `Course` belongsTo `Lecturer`
-- `Lecturer` hasMany `Course`
-- `Student` hasMany `CourseRegistration`
-- `Course` hasMany `CourseRegistration`
+- A student has many course registrations and can belong to many courses.
+- A course has many registrations and can belong to many students.
+- A lecturer has many courses; each course belongs to a lecturer.
+- A course registration belongs to one student and one course.
 
----
+## Screenshots
 
-## 📁 Project Structure
+These screenshots show the running application:
 
-```
-app/
-├── Http/Controllers/
-│   ├── AdminController.php
-│   ├── AuthController.php
-│   ├── CourseController.php
-│   ├── LecturerController.php
-│   ├── RegistrationController.php
-│   ├── StudentController.php
-│   ├── AnnouncementController.php
-│   ├── EventController.php
-│   └── ProfileController.php
-├── Models/
-│   ├── User.php
-│   ├── Student.php
-│   ├── Lecturer.php
-│   ├── Course.php
-│   ├── CourseRegistration.php
-│   ├── Announcement.php
-│   └── Event.php
-database/
-├── migrations/          # 8 migration files
-├── seeders/             # 5 seeders
-resources/views/
-├── layouts/app.blade.php   # Master layout
-├── welcome.blade.php        # Homepage
-├── auth/                    # Login & Register
-├── dashboards/              # Admin, Lecturer, Student
-├── students/                # Student CRUD views
-├── lecturers/               # Lecturer CRUD views
-├── courses/                 # Course CRUD views
-├── registrations/           # Registration views
-├── announcements/           # Announcement views
-├── events/                  # Event views
-└── profile/                 # Profile edit view
+| Home page | Login |
+|---|---|
+| ![CampusConnect home page](screenshots/Screenshot%202026-10-30%20153610.png) | ![CampusConnect login page](screenshots/Screenshot%202026-10-30%20153716.png) |
+
+| Student dashboard | Course listing |
+|---|---|
+| ![Student dashboard](screenshots/Screenshot%202026-10-30%20153336.png) | ![Course listing empty state](screenshots/Screenshot%202026-10-30%20153457.png) |
+
+## Run tests
+
+Run the Laravel test suite with:
+
+```bash
+php artisan test
 ```
 
----
+## GitHub collaboration
 
-## ⚙️ Tech Stack
+The coursework asks the group to use `main` for stable code and `develop` for integration. Each member should work on their own `feature/<task>` branch, push it to GitHub, and open a pull request to `develop` for review before integration.
 
-- **Framework:** Laravel 12
-- **Database:** SQLite (development)
-- **Auth & Roles:** Spatie Laravel Permission v6
-- **Frontend:** Pure CSS (custom design system, no framework)
-- **Icons:** Font Awesome 6
-- **Fonts:** Google Fonts (Inter, Poppins)
+See [CONTRIBUTION_REPORT.md](CONTRIBUTION_REPORT.md) for the group contribution report. Fill it in with the real member names, tasks, branch names, PR links, reviews, and testing details before submission.
 
----
+## Main project folders
 
-## 🌿 GitHub Workflow
-
+```text
+app/                 Application models and controllers
+database/migrations/ Database schema
+database/seeders/    Roles and demonstration data
+resources/views/     Blade templates
+routes/web.php       Web routes
+screenshots/         Application screenshots
+tests/               Automated tests
 ```
-main          ← stable production code
-develop       ← integration branch
-feature/*     ← individual feature branches
-```
-
-Each team member works on a feature branch and submits a PR to `develop`.
