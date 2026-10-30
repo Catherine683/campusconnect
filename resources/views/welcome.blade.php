@@ -6,7 +6,7 @@
     <title>KampusKonnect | Makerere University Business School</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
@@ -71,24 +71,6 @@
         }
         .nav-logo img {
             height: 44px; width: auto;
-        }
-        .nav-logo-fallback {
-            height: 44px; width: 44px;
-            background: var(--green);
-            border-radius: 11px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 20px; color: white;
-        }
-        .nav-logo-text {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px; font-weight: 800;
-            color: var(--text);
-            line-height: 1.1;
-        }
-        .nav-logo-text span { color: var(--green); }
-        .nav-logo-sub {
-            font-size: 10px; color: var(--text-muted);
-            font-weight: 400; display: block; letter-spacing: .3px;
         }
 
         .nav-links {
@@ -166,7 +148,7 @@
 
         .hero-eyebrow {
             display: inline-flex; align-items: center; gap: 8px;
-            font-size: 12px; font-weight: 700; letter-spacing: 2.5px;
+            font-size: 12px; font-weight: 700; letter-spacing: 0;
             text-transform: uppercase; color: #a8d5b5;
             margin-bottom: 22px;
         }
@@ -176,13 +158,13 @@
         }
 
         .hero-heading {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: clamp(40px, 4.5vw, 68px);
             font-weight: 900;
             line-height: 1.06;
             color: #ffffff;
             margin-bottom: 24px;
-            letter-spacing: -1.5px;
+            letter-spacing: 0;
             text-shadow: 0 2px 20px rgba(0,0,0,.3);
         }
         .hero-heading .line-accent {
@@ -232,7 +214,7 @@
         }
         .btn-hero-secondary:hover { border-color: var(--green); color: var(--green); }
 
-        .play-circle {
+        .login-icon {
             width: 40px; height: 40px; border-radius: 50%;
             background: linear-gradient(135deg, var(--green), var(--green-mid));
             display: flex; align-items: center; justify-content: center;
@@ -374,7 +356,7 @@
             display: flex; align-items: center; gap: 14px; color: white;
         }
         .ss-item i { font-size: 26px; opacity: .7; }
-        .ss-item h3 { font-size: 30px; font-weight: 900; line-height: 1; font-family: 'Poppins',sans-serif; }
+        .ss-item h3 { font-size: 30px; font-weight: 900; line-height: 1; font-family: 'Playfair Display', Georgia, serif; }
         .ss-item p  { font-size: 12px; opacity: .65; margin-top: 2px; }
         .ss-divider { width: 1px; height: 44px; background: rgba(255,255,255,.2); }
 
@@ -400,7 +382,7 @@
             margin-bottom: 48px; flex-wrap: wrap; gap: 16px;
         }
         .section-label {
-            font-size: 12px; font-weight: 700; letter-spacing: 2px;
+            font-size: 12px; font-weight: 700; letter-spacing: 0;
             text-transform: uppercase; color: var(--green);
             margin-bottom: 10px;
             display: flex; align-items: center; gap: 8px;
@@ -410,7 +392,7 @@
             width: 18px; height: 2.5px; background: var(--gold); border-radius: 2px;
         }
         .section-title {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: clamp(26px, 3vw, 40px); font-weight: 800;
             color: var(--text); line-height: 1.2;
         }
@@ -458,7 +440,7 @@
             padding: 80px 60px;
         }
         .about-left h2 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: clamp(28px, 2.8vw, 42px); font-weight: 800;
             color: var(--text); margin-bottom: 18px; line-height: 1.2;
         }
@@ -520,12 +502,12 @@
             background: rgba(245,158,11,.07);
         }
         .admissions-label {
-            font-size: 11px; font-weight: 700; letter-spacing: 3px;
+            font-size: 11px; font-weight: 700; letter-spacing: 0;
             text-transform: uppercase; color: var(--gold);
             margin-bottom: 12px;
         }
         .admissions h2 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: clamp(28px, 3vw, 44px); font-weight: 900;
             color: white; line-height: 1.15; margin-bottom: 14px;
         }
@@ -566,7 +548,7 @@
             position: relative;
         }
         .testi-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,.08); transform: translateY(-4px); border-color: var(--green); }
-        .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+        .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 0; }
         .testi-card p { font-size: 14px; line-height: 1.75; color: var(--text-muted); margin-bottom: 20px; font-style: italic; }
         .testi-person { display: flex; align-items: center; gap: 12px; }
         .testi-avatar {
@@ -597,15 +579,7 @@
         .footer-brand .fb-logo {
             display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
         }
-        .fb-logo-icon {
-            width: 38px; height: 38px; border-radius: 10px;
-            background: var(--green); display: flex; align-items: center;
-            justify-content: center; font-size: 17px; color: white;
-        }
-        .fb-logo-text {
-            font-family: 'Poppins',sans-serif;
-            font-size: 17px; font-weight: 800; color: white;
-        }
+        .fb-logo img { display: block; width: 160px; max-width: 100%; height: auto; }
         .footer-brand p { font-size: 13px; color: #64748b; line-height: 1.7; max-width: 270px; margin-bottom: 20px; }
         .footer-socials { display: flex; gap: 10px; }
         .footer-socials a {
@@ -619,7 +593,7 @@
 
         .footer-col h4 {
             font-size: 12px; font-weight: 700; color: white;
-            text-transform: uppercase; letter-spacing: 1px;
+            text-transform: uppercase; letter-spacing: 0;
             margin-bottom: 18px;
         }
         .footer-col a {
@@ -671,6 +645,265 @@
         /* scroll fade-in */
         .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
         .reveal.visible { opacity: 1; transform: none; }
+
+        /* Homepage refresh */
+        :root {
+            --green: #245c48;
+            --green-dark: #183d33;
+            --green-mid: #3a7960;
+            --gold: #e9a23b;
+            --text: #192b28;
+            --text-mid: #40524d;
+            --text-muted: #687a73;
+            --bg: #f5f7f2;
+            --border: #e1e8e1;
+        }
+
+        body { color: var(--text); background: #fff; }
+        .topbar-announce {
+            min-height: 38px;
+            padding: 8px 20px;
+            background: var(--green-dark);
+            font-size: 12px;
+        }
+        .topbar-announce a {
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid rgba(233,162,59,.65);
+            border-radius: 0;
+            padding: 0 0 2px;
+        }
+        nav {
+            height: 76px;
+            padding: 0 clamp(22px, 6vw, 88px);
+            box-shadow: none;
+            border-color: #edf0eb;
+        }
+        .nav-links { gap: 8px; }
+        .nav-links a { border-radius: 5px; font-size: 13px; }
+        .nav-menu-toggle { display: none; }
+        .nav-btn-outline, .nav-btn-filled { border-radius: 5px; }
+        .nav-btn-filled { background: var(--green); box-shadow: none; }
+        .nav-btn-filled:hover { background: var(--green-dark); box-shadow: none; }
+        .nav-btn-outline { border-color: #cbd9d0; }
+
+        .hero {
+            min-height: 620px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(360px, .92fr);
+            align-items: center;
+            gap: clamp(32px, 6vw, 88px);
+            padding: 70px clamp(22px, 8vw, 120px) 76px;
+            background: #f5f7f2;
+        }
+        .hero::before, .hero::after { display: none; }
+        .hero-left {
+            max-width: 650px;
+            margin: 0;
+            text-align: left;
+        }
+        .hero-eyebrow {
+            color: var(--green);
+            font-size: 11px;
+            letter-spacing: 0;
+            margin-bottom: 22px;
+        }
+        .hero-heading {
+            max-width: 680px;
+            margin-bottom: 20px;
+            color: var(--text);
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(46px, 5.2vw, 72px);
+            font-weight: 700;
+            line-height: 1.03;
+            letter-spacing: 0;
+            text-shadow: none;
+        }
+        .hero-heading br { display: none; }
+        .hero-heading .line-gold { color: var(--green); }
+        .hero-heading .line-accent { color: var(--green-mid); }
+        .hero-heading .line-accent::after { display: none; }
+        .hero-desc {
+            max-width: 530px;
+            margin: 0 0 28px;
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+        .hero-actions { justify-content: flex-start; gap: 10px; margin-bottom: 34px; }
+        .btn-hero-primary, .btn-hero-secondary {
+            min-height: 48px;
+            padding: 13px 20px;
+            border-radius: 5px;
+            font-size: 13px;
+            box-shadow: none;
+        }
+        .btn-hero-primary { background: var(--green); color: white; }
+        .btn-hero-primary:hover { background: var(--green-dark); box-shadow: none; }
+        .btn-hero-secondary {
+            background: transparent;
+            border-color: #cbd9d0;
+            color: var(--text);
+        }
+        .btn-hero-secondary:hover { background: white; }
+        .login-icon { width: 28px; height: 28px; background: #e8eee8; color: var(--green); box-shadow: none; }
+        .hero-trust { gap: 18px 24px; }
+        .trust-item { gap: 9px; }
+        .trust-icon {
+            width: 38px; height: 38px;
+            border: 0;
+            border-radius: 5px;
+            background: #e6ede7;
+            box-shadow: none;
+            font-size: 15px;
+        }
+        .trust-item h5 { color: var(--text); font-size: 11px; }
+        .trust-item p { color: var(--text-muted); font-size: 10px; }
+        .hero-visual { position: relative; width: 100%; max-width: 590px; justify-self: end; }
+        .hero-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1.05 / 1;
+            object-fit: cover;
+            border-radius: 3px 72px 3px 3px;
+        }
+        .hero-image-note {
+            position: absolute;
+            left: -28px;
+            bottom: 28px;
+            max-width: calc(100% - 24px);
+            padding: 14px 18px;
+            background: white;
+            border-left: 3px solid var(--gold);
+            box-shadow: 0 14px 35px rgba(25,43,40,.12);
+            color: var(--text);
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .hero-image-note span { display: block; margin-top: 4px; color: var(--text-muted); font-size: 11px; font-weight: 400; }
+
+        .stats-strip {
+            padding: 26px clamp(22px, 8vw, 120px);
+            background: var(--green);
+            gap: 24px;
+        }
+        .ss-item i { color: #e9c27d; font-size: 21px; }
+        .ss-item h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 27px; font-weight: 700; }
+        .ss-cta { border-radius: 4px; background: var(--gold); box-shadow: none; }
+        .programs, .testimonials { padding: 82px clamp(22px, 8vw, 120px); }
+        .section-label { letter-spacing: 0; }
+        .section-title, .about-left h2, .admissions h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            letter-spacing: 0;
+        }
+        .section-title { font-size: clamp(28px, 3vw, 38px); }
+        .programs-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+        .prog-card { border-radius: 5px; }
+        .prog-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(25,43,40,.08); }
+        .prog-img { height: 116px; }
+        .about-split { background: #f1f5ef; }
+        .about-left { padding: 76px clamp(22px, 8vw, 120px); }
+        .about-right { padding: 56px clamp(22px, 6vw, 88px); background: var(--green); }
+        .about-feature { border-radius: 5px; background: rgba(255,255,255,.08); }
+        .admissions { padding: 66px clamp(22px, 8vw, 120px); background: var(--green-dark); }
+        .adm-btn { border-radius: 4px; box-shadow: none; }
+        .testi-grid { gap: 16px; }
+        .testi-card { border-radius: 5px; }
+        .testi-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(25,43,40,.07); }
+        footer { padding: 56px clamp(22px, 8vw, 120px) 24px; background: #172d28; }
+
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: minmax(0, 1fr) minmax(300px, .8fr); gap: 32px; }
+            .programs-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (max-width: 760px) {
+            nav { height: 68px; padding: 0 20px; }
+            .nav-links { display: none; }
+            .nav-cta-wrap { gap: 7px; }
+            .nav-btn-outline, .nav-btn-filled { padding: 9px 12px; font-size: 12px; }
+            .hero {
+                min-height: 0;
+                grid-template-columns: 1fr;
+                gap: 34px;
+                padding: 54px 24px 58px;
+            }
+            .hero-heading { max-width: 560px; font-size: clamp(44px, 10vw, 60px); }
+            .hero-visual { width: min(100%, 560px); justify-self: center; }
+            .hero-image { aspect-ratio: 1.3 / 1; border-top-right-radius: 46px; }
+            .hero-image-note { left: 12px; bottom: 12px; }
+            .hero-right { display: flex; }
+            .stats-strip { align-items: flex-start; }
+            .stats-strip .ss-cta { margin-left: 0 !important; }
+            .programs, .testimonials { padding: 58px 24px; }
+            .about-left { padding: 58px 24px; }
+            .about-right { padding: 36px 24px; }
+            .admissions { padding: 50px 24px; }
+            footer { padding: 46px 24px 22px; }
+        }
+        @media (max-width: 540px) {
+            .topbar-announce { gap: 7px; font-size: 10px; }
+            .topbar-announce a { white-space: nowrap; }
+            .nav-btn-outline { display: none; }
+            .hero { padding: 44px 20px 46px; }
+            .hero-heading { font-size: 44px; }
+            .hero-desc { font-size: 14px; }
+            .hero-trust { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 10px; }
+            .hero-image { aspect-ratio: 1 / 1; }
+            .stats-strip { padding: 24px 20px; }
+            .programs-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .section-top { align-items: flex-start; margin-bottom: 28px; }
+            .section-link { font-size: 12px; }
+            .testi-grid { margin-top: 30px; }
+        }
+
+        @media (max-width: 900px) {
+            nav { position: sticky; gap: 12px; }
+            .nav-menu-toggle {
+                width: 42px;
+                height: 42px;
+                flex: 0 0 42px;
+                display: inline-grid;
+                place-items: center;
+                border: 1px solid #cbd9d0;
+                border-radius: 5px;
+                background: #fff;
+                color: var(--green);
+                font-size: 17px;
+                cursor: pointer;
+            }
+            .nav-menu-toggle:focus-visible,
+            .nav-links a:focus-visible {
+                outline: 3px solid rgba(36,92,72,.3);
+                outline-offset: 2px;
+            }
+            .nav-links,
+            .nav-links.is-open {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                display: none;
+                align-items: stretch;
+                flex-direction: column;
+                gap: 2px;
+                padding: 12px 24px 18px;
+                background: #fff;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 12px 18px rgba(25,43,40,.08);
+            }
+            .nav-links.is-open { display: flex; }
+            .nav-links a { min-height: 44px; display: flex; align-items: center; }
+        }
+
+        @media (max-width: 380px) {
+            nav { padding-right: 12px; padding-left: 12px; gap: 7px; }
+            .nav-logo { min-width: 0; gap: 7px; }
+            .nav-logo img { height: 38px; }
+            .nav-cta-wrap { gap: 0; }
+            .nav-btn-filled { gap: 4px; padding: 8px 7px; font-size: 10px; white-space: nowrap; }
+            .nav-menu-toggle { width: 38px; height: 38px; flex-basis: 38px; }
+            .topbar-announce { flex-wrap: wrap; line-height: 1.4; }
+        }
     </style>
 </head>
 <body>
@@ -679,20 +912,16 @@
 <div class="topbar-announce">
     <i class="fas fa-graduation-cap" style="color:var(--gold);"></i>
     Admissions open for 2026/2027 Academic Year &mdash; Semester I
-    <a href="{{ route('register') }}">Apply Now →</a>
+    <a href="{{ route('register') }}">Apply Now <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </div>
 
 {{-- ── Navbar ── --}}
 <nav>
     <a href="/" class="nav-logo">
-        <div class="nav-logo-fallback"><i class="fas fa-graduation-cap"></i></div>
-        <div>
-            <div class="nav-logo-text">Kampus<span>Konnect</span></div>
-            <span class="nav-logo-sub">Makerere University Business School</span>
-        </div>
+        <img src="{{ asset('images/logo.png') }}" alt="KampusKonnect: Connect, Collaborate, Thrive">
     </a>
 
-    <div class="nav-links">
+    <div class="nav-links" id="primary-navigation">
         <a href="#">Home</a>
         <a href="#programs">Programs</a>
         <a href="#about">About</a>
@@ -700,14 +929,18 @@
         <a href="#">Contact</a>
     </div>
 
+    <button class="nav-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+
     <div class="nav-cta-wrap">
         @auth
             @if(auth()->user()->hasRole('admin'))
-                <a href="{{ route('admin.dashboard') }}" class="nav-btn-filled"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ route('admin.dashboard') }}" class="nav-btn-filled"><i class="fas fa-gauge-high" aria-hidden="true"></i> Dashboard</a>
             @elseif(auth()->user()->hasRole('lecturer'))
-                <a href="{{ route('lecturer.dashboard') }}" class="nav-btn-filled"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ route('lecturer.dashboard') }}" class="nav-btn-filled"><i class="fas fa-gauge-high" aria-hidden="true"></i> Dashboard</a>
             @else
-                <a href="{{ route('student.dashboard') }}" class="nav-btn-filled"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ route('student.dashboard') }}" class="nav-btn-filled"><i class="fas fa-gauge-high" aria-hidden="true"></i> Dashboard</a>
             @endif
         @else
             <a href="{{ route('login') }}" class="nav-btn-outline">Sign In</a>
@@ -722,9 +955,8 @@
         <div class="hero-eyebrow">Learn &nbsp;·&nbsp; Connect &nbsp;·&nbsp; Thrive</div>
 
         <h1 class="hero-heading">
-            Brighter<br>
-            Futures<br>
-            <span class="line-gold">Begin Here</span>
+            Your next chapter<br>
+            <span class="line-gold">starts here.</span>
         </h1>
 
         <p class="hero-desc">
@@ -735,18 +967,18 @@
         <div class="hero-actions">
             @auth
                 @if(auth()->user()->hasRole('admin'))
-                    <a href="{{ route('admin.dashboard') }}" class="btn-hero-primary"><i class="fas fa-th-large"></i> Go to Dashboard</a>
+                    <a href="{{ route('admin.dashboard') }}" class="btn-hero-primary"><i class="fas fa-gauge-high" aria-hidden="true"></i> Go to Dashboard</a>
                 @elseif(auth()->user()->hasRole('lecturer'))
-                    <a href="{{ route('lecturer.dashboard') }}" class="btn-hero-primary"><i class="fas fa-th-large"></i> Go to Dashboard</a>
+                    <a href="{{ route('lecturer.dashboard') }}" class="btn-hero-primary"><i class="fas fa-gauge-high" aria-hidden="true"></i> Go to Dashboard</a>
                 @else
-                    <a href="{{ route('student.dashboard') }}" class="btn-hero-primary"><i class="fas fa-th-large"></i> Go to Dashboard</a>
+                    <a href="{{ route('student.dashboard') }}" class="btn-hero-primary"><i class="fas fa-gauge-high" aria-hidden="true"></i> Go to Dashboard</a>
                 @endif
             @else
                 <a href="{{ route('register') }}" class="btn-hero-primary">
                     <i class="fas fa-user-plus"></i> Create Account
                 </a>
                 <a href="{{ route('login') }}" class="btn-hero-secondary">
-                    <div class="play-circle"><i class="fas fa-play" style="margin-left:2px;font-size:11px;"></i></div>
+                    <div class="login-icon"><i class="fas fa-right-to-bracket" aria-hidden="true"></i></div>
                     Sign In
                 </a>
             @endauth
@@ -766,9 +998,16 @@
                 <div><h5>Secure Campus</h5><p>Role-Based Access</p></div>
             </div>
             <div class="trust-item">
-                <div class="trust-icon" style="color:#9333ea;"><i class="fas fa-star"></i></div>
+                <div class="trust-icon" style="color:#3a7960;"><i class="fas fa-seedling" aria-hidden="true"></i></div>
                 <div><h5>Holistic Growth</h5><p>Beyond Academics</p></div>
             </div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <img class="hero-image" src="{{ asset('images/hero-students.jpg') }}" alt="Students collaborating in a bright campus classroom">
+        <div class="hero-image-note">
+            A community built around your future
+            <span>Learn together. Grow with purpose.</span>
         </div>
     </div>
 </section>
@@ -811,7 +1050,7 @@
 
     <div class="programs-grid">
         <div class="prog-card">
-            <div class="prog-img" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);">📚</div>
+            <div class="prog-img" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);"><i class="fas fa-briefcase" style="color:#15803d;" aria-hidden="true"></i></div>
             <div class="prog-body">
                 <h4>Business Management</h4>
                 <p>Core business principles and leadership skills.</p>
@@ -819,7 +1058,7 @@
             </div>
         </div>
         <div class="prog-card">
-            <div class="prog-img" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);">💻</div>
+            <div class="prog-img" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);"><i class="fas fa-laptop-code" style="color:#2563eb;" aria-hidden="true"></i></div>
             <div class="prog-body">
                 <h4>Information Technology</h4>
                 <p>Web, databases, software engineering and more.</p>
@@ -827,7 +1066,7 @@
             </div>
         </div>
         <div class="prog-card">
-            <div class="prog-img" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">📊</div>
+            <div class="prog-img" style="background:linear-gradient(135deg,#fef3c7,#fde68a);"><i class="fas fa-calculator" style="color:#b45309;" aria-hidden="true"></i></div>
             <div class="prog-body">
                 <h4>Accounting &amp; Finance</h4>
                 <p>Financial analysis, audit and reporting.</p>
@@ -835,7 +1074,7 @@
             </div>
         </div>
         <div class="prog-card">
-            <div class="prog-img" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);">🎯</div>
+            <div class="prog-img" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);"><i class="fas fa-bullhorn" style="color:#7c3aed;" aria-hidden="true"></i></div>
             <div class="prog-body">
                 <h4>Marketing &amp; Commerce</h4>
                 <p>Digital marketing, branding and sales strategy.</p>
@@ -843,7 +1082,7 @@
             </div>
         </div>
         <div class="prog-card">
-            <div class="prog-img" style="background:linear-gradient(135deg,#fee2e2,#fecaca);">🌍</div>
+            <div class="prog-img" style="background:linear-gradient(135deg,#fee2e2,#fecaca);"><i class="fas fa-globe" style="color:#dc2626;" aria-hidden="true"></i></div>
             <div class="prog-body">
                 <h4>International Pathway</h4>
                 <p>Global opportunities and exchange programmes.</p>
@@ -864,7 +1103,7 @@
             — all through one seamless digital campus.
         </p>
         <a href="{{ route('register') }}" class="about-btn">
-            <i class="fas fa-rocket"></i> Discover Our School
+            <i class="fas fa-arrow-right" aria-hidden="true"></i> Discover Our School
         </a>
     </div>
     <div class="about-right">
@@ -917,7 +1156,9 @@
     <div class="testi-grid">
         <div class="testi-card">
             <div class="testi-quote">"</div>
-            <div class="testi-stars">★★★★★</div>
+            <div class="testi-stars" role="img" aria-label="Rated 5 out of 5">
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+            </div>
             <p>KampusKonnect has been a wonderful experience. The system makes registering for courses so seamless and the announcements keep us always in the loop.</p>
             <div class="testi-person">
                 <div class="testi-avatar" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);">AN</div>
@@ -929,7 +1170,9 @@
         </div>
         <div class="testi-card">
             <div class="testi-quote">"</div>
-            <div class="testi-stars">★★★★★</div>
+            <div class="testi-stars" role="img" aria-label="Rated 5 out of 5">
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+            </div>
             <p>Excellent platform with a clean interface. Managing my courses and tracking student registrations has never been this easy. Highly recommended.</p>
             <div class="testi-person">
                 <div class="testi-avatar" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);">JM</div>
@@ -941,7 +1184,9 @@
         </div>
         <div class="testi-card">
             <div class="testi-quote">"</div>
-            <div class="testi-stars">★★★★★</div>
+            <div class="testi-stars" role="img" aria-label="Rated 5 out of 5">
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+            </div>
             <p>A perfect balance of academic management, events and announcements. Our campus feels more connected than ever before with this system.</p>
             <div class="testi-person">
                 <div class="testi-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">RP</div>
@@ -959,8 +1204,7 @@
     <div class="footer-grid">
         <div class="footer-brand">
             <div class="fb-logo">
-                <div class="fb-logo-icon"><i class="fas fa-graduation-cap"></i></div>
-                <span class="fb-logo-text">KampusKonnect</span>
+                <img src="{{ asset('images/logo.png') }}" alt="KampusKonnect: Connect, Collaborate, Thrive">
             </div>
             <p>The Student Management System for Makerere University Business School. Built for the future of campus life.</p>
             <div class="footer-socials">
@@ -1006,6 +1250,35 @@
 </footer>
 
 <script>
+    const menuToggle = document.querySelector('.nav-menu-toggle');
+    const primaryNavigation = document.querySelector('#primary-navigation');
+    const menuIcon = menuToggle.querySelector('i');
+
+    const setNavigationOpen = (isOpen) => {
+        primaryNavigation.classList.toggle('is-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        menuIcon.classList.toggle('fa-bars', !isOpen);
+        menuIcon.classList.toggle('fa-xmark', isOpen);
+    };
+
+    menuToggle.addEventListener('click', () => {
+        setNavigationOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    primaryNavigation.addEventListener('click', (event) => {
+        if (event.target.closest('a')) {
+            setNavigationOpen(false);
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+            setNavigationOpen(false);
+            menuToggle.focus();
+        }
+    });
+
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
