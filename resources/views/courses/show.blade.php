@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <!-- Registered Students -->
+        @if($canViewRoster)
         <div class="card">
             <div class="card-header">
                 <span class="card-title"><i class="fas fa-user-graduate" style="color:#7c3aed;"></i> Registered Students ({{ $course->students->count() }})</span>
@@ -69,6 +69,7 @@
                 @endforelse
             </div>
         </div>
+        @endif
     </div>
 
     <!-- Sidebar -->
