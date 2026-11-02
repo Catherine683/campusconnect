@@ -34,14 +34,14 @@ Route::middleware('auth')->group(function () {
 
     // ── Shared read routes (all authenticated roles) ───────────────────────────
     Route::get('/courses',           [CourseController::class, 'index'])->name('courses.index');
-    Route::get('/courses/{course}',  [CourseController::class, 'show'])->name('courses.show');
+    Route::get('/courses/{course}', [CourseController::class, 'show'])->whereNumber('course')->name('courses.show');
     Route::get('/announcements',     [AnnouncementController::class, 'index'])->name('announcements.index');
     Route::get('/events',            [EventController::class, 'index'])->name('events.index');
     Route::get('/registrations',     [RegistrationController::class, 'index'])->name('registrations.index');
     Route::delete('/registrations/{registration}', [RegistrationController::class, 'destroy'])
         ->middleware('role:admin|student')
         ->name('registrations.destroy');
-    Route::get('/students/{student}',[StudentController::class, 'show'])->name('students.show');
+    Route::get('/students/{student}', [StudentController::class, 'show'])->whereNumber('student')->name('students.show');
     Route::get('/students',          [StudentController::class, 'index'])->name('students.index');
 
     // ── Admin ─────────────────────────────────────────────────────────────────
